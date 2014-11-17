@@ -69,10 +69,75 @@
     text-align:  right
 }
 
+/*Reservation CSS*/
 
 
+.main_content  .reservation_content
+{
+
+    margin: 10px 0 0 100px;
+    padding: 0px;
+
+}
+
+.reservation_content .label_end_date
+{
+    margin: 5px 0 0 0;
+
+}
+
+.label_end_date input[type=text]
+
+{
+
+    margin:  0 0 0 7px;
+}
+
+.reservation_content .label_room_type
+{
+    margin: 10px 0 0 0;
+
+}
+
+.reservation_content .room_list_data_table
+{
+    margin: 30px 0 0 0;
+
+}
+
+ .procedd_checkout_btn
+{
+    margin: 0px;
+    padding: 0px;
+    float: right;
+
+}
+.ui-selectonemenu .ui-selectonemenu-trigger
+{
+
+    width:22px;
+}
 
 
+/*Checkout CSS*/
+.main_content  .check_out_content
+{
+
+    margin: 10px 0 0 100px;
+    padding: 0px;
+
+}
+
+.check_out_content .align-right
+{
+    margin: 5px 0 0 0 ;
+    text-align: right;
+    font-weight: bold;
+    padding: 0px;
+    
+    
+}
+/*Footer  CSS*/
 .footer
 {
     margin:30px 0 0 0 ;
