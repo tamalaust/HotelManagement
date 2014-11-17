@@ -145,6 +145,7 @@
     text-align: right;
 
 }
+//display room in table format
 .room-table{   
 	border-collapse:collapse;
 }
