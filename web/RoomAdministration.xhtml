@@ -31,28 +31,30 @@
                 <div class="col-md-6 main_content">
 
                     <div class="col-md-12 login_form_component" >
-                        
+                    <h:form>  
                         <h3>Room Administration</h3>
                         <h:panelGrid columns="2">
                         <label>Room Number
-                            <h:inputText class="form-control"/></label><br/>    
+                            <h:inputText class="form-control" value="#{roomManagementBean.room.roomNumber}"/></label><br/>    
                         <label>Type of Room
-                            <h:selectOneListbox>
+                            <h:selectOneListbox value="#{roomManagementBean.room.typeRoom}">
                                 <f:selectItem itemValue="Deluxe" itemLabel="Deluxe" />
                                 <f:selectItem itemValue="Luxury" itemLabel="Luxury" />
                                 <f:selectItem itemValue="Economy" itemLabel="Economy" />
                             </h:selectOneListbox>
                         </label><br/>
                         <label>Description
-                            <h:inputTextarea cols="30" rows="3" class="form-control"/></label><br/>
+                            <h:inputTextarea cols="30" rows="3" class="form-control" value="#{roomManagementBean.room.description}"/></label><br/>
                         <label>Price
-                            <h:inputText class="form-control"/></label><br/>    
+                            <h:inputText class="form-control" value="#{roomManagementBean.room.price}"/></label><br/>    
                         </h:panelGrid>    
                         <div class="col-md-6 login_buttons">
-                            <h:commandButton value="Save" class="btn btn-info btn-lg"/>
+                            <h:commandButton value="Submit" class="btn btn-info btn-lg" action="#{roomManagementBean.save}" />
                             <h:commandButton value="Edit" class="btn btn-info btn-lg"/>
                             <h:commandButton value="Delete" class="btn btn-info btn-lg"/>
-                        <h:dataTable value="List" var="room"
+                        </div>    
+                    </h:form>
+<!--                        <h:dataTable value="List" var="room"
     			styleClass="room-table"
     			headerClass="room-table-header"
     			rowClasses="room-table-odd-row,room-table-even-row">
@@ -78,9 +80,9 @@
     				80.00
     			</h:column>
  
-    		</h:dataTable>
+    		</h:dataTable>-->
 
-                        </div>  
+                      
                     </div>
 
 

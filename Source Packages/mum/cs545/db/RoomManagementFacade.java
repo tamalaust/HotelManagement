@@ -8,14 +8,14 @@ package mum.cs545.db;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import mum.cs545.model.RoomManagement;
+import mum.cs545.model.RoomManagementEntity;
 
 /**
  *
  * @author atan
  */
 @Stateless
-public class RoomManagementFacade extends AbstractFacade<RoomManagement> {
+public class RoomManagementFacade extends AbstractFacade<RoomManagementEntity> {
     @PersistenceContext(unitName = "HotalManagementPU")
     private EntityManager em;
 
@@ -25,7 +25,7 @@ public class RoomManagementFacade extends AbstractFacade<RoomManagement> {
     }
 
     public RoomManagementFacade() {
-        super(RoomManagement.class);
+        super(RoomManagementEntity.class);
     }
     
 }
