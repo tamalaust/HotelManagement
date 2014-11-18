@@ -3,100 +3,100 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Hilton International</title>
 
     </h:head>
     <h:body>
-        <h:outputStylesheet  name="css/bootstrap.css" />
-        <h:outputStylesheet  name="css/style.css" />
+        <ui:composition template="/templates/masterLayout.xhtml">
 
-        <div id="wrap">
+            <ui:define name="windowTitle">
 
-            <div class="row header">Welcome to Hilton International</div> 
-<!--            header part finishes here-->
-            <div class="row content">
-                <div class="col-md-6 left_sidebar">
-                    <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Register</a></li>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Available Rooms</a></li>
-                        <li><a href="#">Promotions</a></li>
-                    </ul>
+            </ui:define>
 
-                </div>
-<!--                left sidebar finishes here-->
-                <div class="col-md-6 main_content">
+            <ui:define name="content">
 
-                    <div class="col-md-12 login_form_component" >
-                    <h:form>  
-                        <h3>Room Administration</h3>
-                        <h:panelGrid columns="2">
-                        <label>Room Number
-                            <h:inputText class="form-control" value="#{roomManagementBean.room.roomNumber}"/></label><br/>    
-                        <label>Type of Room
-                            <h:selectOneListbox value="#{roomManagementBean.room.typeRoom}">
-                                <f:selectItem itemValue="Deluxe" itemLabel="Deluxe" />
-                                <f:selectItem itemValue="Luxury" itemLabel="Luxury" />
-                                <f:selectItem itemValue="Economy" itemLabel="Economy" />
-                            </h:selectOneListbox>
-                        </label><br/>
-                        <label>Description
-                            <h:inputTextarea cols="30" rows="3" class="form-control" value="#{roomManagementBean.room.description}"/></label><br/>
-                        <label>Price
-                            <h:inputText class="form-control" value="#{roomManagementBean.room.price}"/></label><br/>    
-                        </h:panelGrid>    
-                        <div class="col-md-6 login_buttons">
-                            <h:commandButton value="Submit" class="btn btn-info btn-lg" action="#{roomManagementBean.save}" />
-                            <h:commandButton value="Edit" class="btn btn-info btn-lg"/>
-                            <h:commandButton value="Delete" class="btn btn-info btn-lg"/>
-                        </div>    
-                    </h:form>
-<!--                        <h:dataTable value="List" var="room"
-    			styleClass="room-table"
-    			headerClass="room-table-header"
-    			rowClasses="room-table-odd-row,room-table-even-row">
- 
-    			<h:column>
-    	
-    				<f:facet name="header">Room Number</f:facet>
-    				room number
-    			</h:column>
- 
-    			<h:column>
-    				<f:facet name="header">Room Type</f:facet>
-    				deluxe
-    			</h:column>
- 
-    			<h:column>
-    				<f:facet name="header">Description</f:facet>
-    				A very relaxing room that has..........
-    			</h:column>
- 
-    			<h:column>
-    				<f:facet name="header">Price</f:facet>
-    				80.00
-    			</h:column>
- 
-    		</h:dataTable>-->
 
-                      
+                <br></br>
+                <div class="panel panel-info">
+                    <div class="panel-heading">Room Administration</div>
+                    <div class="panel-body">
+                        <h:form class="form-horizontal"> 
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Room Number</label>
+                                <div class="col-sm-4">
+                                    <h:inputText class="form-control" value="#{roomManagementBean.room.roomNumber}"/>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Type of Room</label>
+                                <div class="col-sm-4">
+                                    <h:selectOneListbox value="#{roomManagementBean.room.typeRoom}">
+                                        <f:selectItem itemValue="Deluxe" itemLabel="Deluxe" />
+                                        <f:selectItem itemValue="Luxury" itemLabel="Luxury" />
+                                        <f:selectItem itemValue="Economy" itemLabel="Economy" />
+                                    </h:selectOneListbox>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Description</label>
+                                <div class="col-sm-4">
+                                     <h:inputTextarea cols="30" rows="3" class="form-control" value="#{roomManagementBean.room.description}"/>
+                                </div>
+                            
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Price</label>
+                                <div class="col-sm-4">
+                             <h:inputText class="form-control" value="#{roomManagementBean.room.price}"/>
+                                </div>
+                            
+                            </div>
+                            
+                            <div class="form-group">
+                               <label class="col-sm-2 control-label"></label>
+                                <div class="col-sm-4">
+                              <h:commandButton value="Submit" class="btn btn-primary" action="#{roomManagementBean.save}" />&nbsp;
+                                <h:commandButton value="Serach" class="btn btn-default"/>
+
+                                </div>
+                            
+                            </div>
+                            
+
+                            <h:panelGrid columns="2">
+                                <label>
+                                   </label><br/>    
+                                <label>
+                                    
+                                </label><br/>
+                                <label>
+                                   </label><br/>
+                                <label>
+                                   </label><br/>    
+                            </h:panelGrid>    
+                            <div class="col-md-6 login_buttons ">
+                               
+                            </div> 
+
+                        </h:form>   
                     </div>
+                </div>    
 
 
-                </div>
-                
-<!--                main content finishes here-->
-            </div>
-            <div class="row footer">@Copyright MUM 2014</div>
-            
-<!--            footer finishes here-->
 
-        </div>
-        
-        <!--        wrap ends here-->
+
+
+
+            </ui:define>    
+            <!--        wrap ends here-->
+
+
+        </ui:composition>
     </h:body>
 </html>
 
