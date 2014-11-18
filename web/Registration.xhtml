@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      >
     <h:head>
         <title>Hilton International</title>
 
@@ -14,7 +14,7 @@
         <div id="wrap">
 
             <div class="row header">Welcome to Hilton International</div> 
-<!--            header part finishes here-->
+            <!--            header part finishes here-->
             <div class="row content">
                 <div class="col-md-6 left_sidebar">
                     <ul class="nav nav-pills nav-stacked">
@@ -26,48 +26,49 @@
                     </ul>
 
                 </div>
-<!--                left sidebar finishes here-->
+                <!--                left sidebar finishes here-->
                 <div class="col-md-6 main_content">
 
                     <div class="col-md-12 login_form_component" >
+                        <h:form>
+                            <h3>Registration</h3>
+                            <h:panelGrid columns="2">
+                                <label>First Name
+                                    <h:inputText class="form-control" value="#{registrationBean.register.firstName}"/></label><br/>
+                                <label>Last Name
+                                    <h:inputText class="form-control" value="#{registrationBean.register.lastName}"/></label><br/>
+                                <label>Email Address
+                                    <h:inputText class="form-control" value="#{registrationBean.register.emailAddress}"/></label><br/>    
+                                <label>Age
+                                    <h:inputText class="form-control" value="#{registrationBean.register.age}"/></label><br/>    
+                                <label>Contact Number
+                                    <h:inputText class="form-control" value="#{registrationBean.register.contactNumber}"/></label><br/>
+                                <label>Home Address
+                                    <h:inputTextarea cols="30" rows="3" class="form-control" value="#{registrationBean.register.homeAddress}"/></label><br/>    
+                                <label>Zip
+                                    <h:inputText class="form-control" value="#{registrationBean.register.zip}"/></label><br/>    
+                                <label>State
+                                    <h:inputText class="form-control" value="#{registrationBean.register.state}"/></label><br/>
+                            </h:panelGrid>    
+                            <div class="col-md-6 login_buttons">
+                                <h:commandButton value="Submit" class="btn btn-info btn-lg" action="#{registrationBean.save}" />
+                                <h:commandButton value="Reset" class="btn btn-info btn-lg"/>
 
-                        <h3>Registration</h3>
-                        <h:panelGrid columns="2">
-                        <label>First Name
-                            <h:inputText class="form-control"/></label><br/>
-                        <label>Last Name
-                            <h:inputText class="form-control"/></label><br/>
-                        <label>Email Address
-                            <h:inputText class="form-control"/></label><br/>    
-                        <label>Age
-                            <h:inputText class="form-control"/></label><br/>    
-                        <label>Contact Number
-                            <h:inputText class="form-control"/></label><br/>
-                        <label>Home Address
-                            <h:inputTextarea cols="30" rows="3" class="form-control"/></label><br/>    
-                        <label>Zip
-                            <h:inputText class="form-control"/></label><br/>    
-                        <label>State
-                            <h:inputText class="form-control"/></label><br/>
-                        </h:panelGrid>    
-                        <div class="col-md-6 login_buttons">
-                            <h:commandButton value="Submit" class="btn btn-info btn-lg"/>
-                            <h:commandButton value="Cancel" class="btn btn-info btn-lg"/>
-
-                        </div>  
+                            </div>  
+                             </h:form>
                     </div>
 
-
+                   
                 </div>
-                
-<!--                main content finishes here-->
+
+                <!--                main content finishes here-->
             </div>
             <div class="row footer">@Copyright MUM 2014</div>
-            
-<!--            footer finishes here-->
+
+            <!--            footer finishes here-->
 
         </div>
-        
+
         <!--        wrap ends here-->
     </h:body>
 </html>

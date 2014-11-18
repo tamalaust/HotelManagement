@@ -32,7 +32,7 @@ public class RegisterEntity implements Serializable {
 
     public RegisterEntity(){
     }
-    public RegisterEntity(String firstName, String lastName, String emailAddress, String age, String contactNumber, String homeAddress, String zip, String state, Long id) {
+    public RegisterEntity(String firstName, String lastName, String emailAddress, String age, String contactNumber, String homeAddress, String zip, String state) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
@@ -41,7 +41,7 @@ public class RegisterEntity implements Serializable {
         this.homeAddress = homeAddress;
         this.zip = zip;
         this.state = state;
-        this.id = id;
+        
     }
     public Long getId() {
         return id;
