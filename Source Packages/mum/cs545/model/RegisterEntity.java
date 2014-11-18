@@ -18,10 +18,31 @@ import javax.persistence.Id;
 @Entity
 public class RegisterEntity implements Serializable {
     private static final long serialVersionUID = 1L;
+    private String firstName;
+    private String lastName;
+    private String emailAddress;
+    private String age;
+    private String contactNumber;
+    private String homeAddress;
+    private String zip;
+    private String state;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    public RegisterEntity(){
+    }
+    public RegisterEntity(String firstName, String lastName, String emailAddress, String age, String contactNumber, String homeAddress, String zip, String state, Long id) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.emailAddress = emailAddress;
+        this.age = age;
+        this.contactNumber = contactNumber;
+        this.homeAddress = homeAddress;
+        this.zip = zip;
+        this.state = state;
+        this.id = id;
+    }
     public Long getId() {
         return id;
     }
@@ -30,29 +51,69 @@ public class RegisterEntity implements Serializable {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+    public String getFirstName() {
+        return firstName;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof RegisterEntity)) {
-            return false;
-        }
-        RegisterEntity other = (RegisterEntity) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    @Override
-    public String toString() {
-        return "mum.cs545.model.RegisterEntity[ id=" + id + " ]";
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public String getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(String homeAddress) {
+        this.homeAddress = homeAddress;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
     
+
 }
