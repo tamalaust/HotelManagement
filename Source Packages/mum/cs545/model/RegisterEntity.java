@@ -16,7 +16,12 @@ import javax.persistence.Id;
  * @author zahid
  */
 @Entity
+
 public class RegisterEntity implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy =GenerationType.AUTO)
+    private Long id;
     private static final long serialVersionUID = 1L;
     private String firstName;
     private String lastName;
@@ -26,12 +31,10 @@ public class RegisterEntity implements Serializable {
     private String homeAddress;
     private String zip;
     private String state;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
-    public RegisterEntity(){
+    public RegisterEntity() {
     }
+
     public RegisterEntity(String firstName, String lastName, String emailAddress, String age, String contactNumber, String homeAddress, String zip, String state) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -41,8 +44,9 @@ public class RegisterEntity implements Serializable {
         this.homeAddress = homeAddress;
         this.zip = zip;
         this.state = state;
-        
+
     }
+
     public Long getId() {
         return id;
     }
@@ -114,6 +118,5 @@ public class RegisterEntity implements Serializable {
     public void setState(String state) {
         this.state = state;
     }
-    
 
 }

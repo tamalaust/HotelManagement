@@ -9,8 +9,13 @@ import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-import mum.cs545.db.RegisterEntityFacade;
 import mum.cs545.model.RegisterEntity;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 /**
  *
@@ -20,9 +25,16 @@ import mum.cs545.model.RegisterEntity;
 @SessionScoped
 public class RegistrationBean implements Serializable {
 
-    RegisterEntity register=  new RegisterEntity();
-    @EJB //this annotation causes the container to inject this dependency
-    private RegisterEntityFacade ejbRegister;
+    RegisterEntity register = new RegisterEntity();
+    private static SessionFactory sessionFactory;
+    private static Transaction tx;
+
+    static {
+        Configuration config = new Configuration();
+        config.configure("hibernate.cfg.xml");
+        StandardServiceRegistry sr = new StandardServiceRegistryBuilder().applySettings(config.getProperties()).build();
+        sessionFactory = config.buildSessionFactory(sr);
+    }
 
     public RegisterEntity getRegister() {
         return register;
@@ -39,16 +51,12 @@ public class RegistrationBean implements Serializable {
                 getRegister().getAge(), getRegister().getContactNumber(), getRegister().getHomeAddress(), getRegister().getZip(),
                 getRegister().getState());
 
-                
-        
-        try {
+        Session session = sessionFactory.openSession();
+        tx = session.beginTransaction();
+        session.save(register);
+        tx.commit();
+        session.close();
 
-            ejbRegister.create(register);
-        } catch (Exception e) {
-            System.out.print("Error msg " + e);
-        }
-        System.out.print("inside save");
-        
         return "index";
     }
 
