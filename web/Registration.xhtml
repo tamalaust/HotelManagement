@@ -2,74 +2,102 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      >
+
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Hilton International</title>
 
     </h:head>
     <h:body>
-        <h:outputStylesheet  name="css/bootstrap.css" />
-        <h:outputStylesheet  name="css/style.css" />
+        <ui:composition template="/templates/masterLayout.xhtml">
 
-        <div id="wrap">
+            <ui:define name="windowTitle">
 
-            <div class="row header">Welcome to Hilton International</div> 
-            <!--            header part finishes here-->
-            <div class="row content">
-                <div class="col-md-6 left_sidebar">
-                    <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Register</a></li>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Available Rooms</a></li>
-                        <li><a href="#">Promotions</a></li>
-                    </ul>
+            </ui:define>
 
-                </div>
-                <!--                left sidebar finishes here-->
-                <div class="col-md-6 main_content">
+            <ui:define name="content">
 
-                    <div class="col-md-12 login_form_component" >
-                        <h:form>
-                            <h3>Registration</h3>
-                            <h:panelGrid columns="2">
-                                <label>First Name
-                                    <h:inputText class="form-control" value="#{registrationBean.register.firstName}"/></label><br/>
-                                <label>Last Name
-                                    <h:inputText class="form-control" value="#{registrationBean.register.lastName}"/></label><br/>
-                                <label>Email Address
-                                    <h:inputText class="form-control" value="#{registrationBean.register.emailAddress}"/></label><br/>    
-                                <label>Age
-                                    <h:inputText class="form-control" value="#{registrationBean.register.age}"/></label><br/>    
-                                <label>Contact Number
-                                    <h:inputText class="form-control" value="#{registrationBean.register.contactNumber}"/></label><br/>
-                                <label>Home Address
-                                    <h:inputTextarea cols="30" rows="3" class="form-control" value="#{registrationBean.register.homeAddress}"/></label><br/>    
-                                <label>Zip
-                                    <h:inputText class="form-control" value="#{registrationBean.register.zip}"/></label><br/>    
-                                <label>State
-                                    <h:inputText class="form-control" value="#{registrationBean.register.state}"/></label><br/>
-                            </h:panelGrid>    
-                            <div class="col-md-6 login_buttons">
-                                <h:commandButton value="Submit" class="btn btn-info btn-lg" action="#{registrationBean.save}" />
-                                <h:commandButton value="Reset" class="btn btn-info btn-lg"/>
+                <div class="panel panel-info">
+                    <div class="panel-heading">Customer Registration</div>
+                    <div class="panel-body">
 
-                            </div>  
-                             </h:form>
+
+                        <h:form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">First Name</label>
+                                <div class="col-sm-4">
+                                    <h:inputText class="form-control" value="#{registrationBean.register.firstName}"/>
+                                </div>
+                            </div>
+                            
+                             <div class="form-group">
+                                <label class="col-sm-2 control-label">Last Name</label>
+                                <div class="col-sm-4">
+                                   <h:inputText class="form-control" value="#{registrationBean.register.lastName}"/>
+                                </div>
+                            </div>
+                            
+                            
+                             <div class="form-group">
+                                <label class="col-sm-2 control-label">Email Address</label>
+                                <div class="col-sm-4">
+                                   <h:inputText class="form-control" value="#{registrationBean.register.emailAddress}"/>
+                                </div>
+                            </div>
+                            
+                            
+                             <div class="form-group">
+                                <label class="col-sm-2 control-label">Age</label>
+                                <div class="col-sm-4">
+                                   <h:inputText class="form-control" value="#{registrationBean.register.age}"/>
+                                </div>
+                            </div>
+                            
+                             <div class="form-group">
+                                <label class="col-sm-2 control-label">Contact Number</label>
+                                <div class="col-sm-4">
+                                   <h:inputText class="form-control" value="#{registrationBean.register.contactNumber}"/>
+                                </div>
+                            </div>
+                            
+                             <div class="form-group">
+                                <label class="col-sm-2 control-label">Home Address</label>
+                                <div class="col-sm-4">
+                             <h:inputTextarea cols="30" rows="3" class="form-control" value="#{registrationBean.register.homeAddress}"/>
+                                </div>
+                            </div>
+                            
+                             <div class="form-group">
+                                <label class="col-sm-2 control-label">Zip</label>
+                                <div class="col-sm-4">
+                              <h:inputText class="form-control" value="#{registrationBean.register.zip}"/>
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <label class="col-sm-2 control-label">State</label>
+                                <div class="col-sm-4">
+                               <h:inputText class="form-control" value="#{registrationBean.register.state}"/>
+                                </div>
+                            </div>
+                            
+                             <div class="form-group">
+                                <label class="col-sm-2 control-label"></label>
+                                <div class="col-sm-4">
+                             
+                                     <h:commandButton value="Submit" class="btn btn-primary" action="#{registrationBean.save}" />
+                                <h:commandButton value="Reset" class="btn btn-default"/>
+                                </div>
+                            </div>
+                           
+                        </h:form>
                     </div>
-
-                   
                 </div>
 
-                <!--                main content finishes here-->
-            </div>
-            <div class="row footer">@Copyright MUM 2014</div>
+            </ui:define>    
+            <!--        wrap ends here-->
 
-            <!--            footer finishes here-->
 
-        </div>
-
-        <!--        wrap ends here-->
+        </ui:composition>
     </h:body>
 </html>
 

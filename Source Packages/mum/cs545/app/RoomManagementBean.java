@@ -5,6 +5,7 @@
  */
 package mum.cs545.app;
 
+import common.Util;
 import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -28,6 +29,12 @@ public class RoomManagementBean implements Serializable {
         return room;
     }
 
+    public void sendEmail()
+    {
+        Util.SendEmail();
+    
+    }
+    
     public void setRoom(RoomManagementEntity room) {
         this.room = room;
     }
@@ -37,4 +44,6 @@ public class RoomManagementBean implements Serializable {
         return null;
     
     }
+    
+    
 }
