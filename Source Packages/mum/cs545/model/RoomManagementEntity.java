@@ -19,16 +19,15 @@ import javax.persistence.Id;
 public class RoomManagementEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
-  
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String roomNumber;
     private String typeRoom;
     private String description;
     private Long price;
     private boolean status;
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
     public RoomManagementEntity() {
     }

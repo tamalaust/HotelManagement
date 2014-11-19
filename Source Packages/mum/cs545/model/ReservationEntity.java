@@ -24,7 +24,8 @@ public class ReservationEntity implements Serializable {
     private Long id;
     private Date startDate;
     private Date endDate;
-    private RoomManagementEntity typeRoom[];
+    private RoomManagementEntity room[];
+    private String typeRoom;
     
     public Long getId() {
         return id;
@@ -50,12 +51,25 @@ public class ReservationEntity implements Serializable {
         this.endDate = endDate;
     }
 
-    public RoomManagementEntity[] getTypeRoom() {
+    public RoomManagementEntity[] getRoom() {
+        return room;
+    }
+
+    public void setRoom(RoomManagementEntity[] room) {
+        this.room = room;
+    }
+
+    public String getTypeRoom() {
         return typeRoom;
     }
 
-    public void setTypeRoom(RoomManagementEntity[] typeRoom) {
+    public void setTypeRoom(String typeRoom) {
         this.typeRoom = typeRoom;
     }
     
+    public String toString()
+    {
+       return typeRoom;
+    }
+ 
 }

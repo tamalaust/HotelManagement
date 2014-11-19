@@ -57,7 +57,7 @@ public class RegistrationBean implements Serializable {
         tx.commit();
         session.close();
 
-        return "index";
+        return "RoomAdministration";
     }
 
 }
