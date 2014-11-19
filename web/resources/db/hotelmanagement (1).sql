@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2014 at 11:25 AM
+-- Generation Time: Nov 19, 2014 at 09:16 PM
 -- Server version: 5.5.39
 -- PHP Version: 5.4.31
 
@@ -23,6 +23,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `promotionentity`
+--
+
+CREATE TABLE IF NOT EXISTS `promotionentity` (
+`id` bigint(20) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `discount` int(11) NOT NULL,
+  `endDate` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `promotionCode` varchar(255) DEFAULT NULL,
+  `startDate` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `promotionentity`
+--
+
+INSERT INTO `promotionentity` (`id`, `description`, `discount`, `endDate`, `name`, `promotionCode`, `startDate`) VALUES
+(1, 'avsdvjavsjdvasd', 10, 'Tue Nov 04 00:00:00 CST 2014', 'Summer discount', '6b3631a', 'Tue Nov 04 00:00:00 CST 2014'),
+(2, 'gashgh', 20, 'Tue Dec 02 00:00:00 CST 2014', 'Winter', '94a64fc', 'Tue Nov 04 00:00:00 CST 2014'),
+(3, 'winter mega discount', 23, 'Wed Nov 05 00:00:00 CST 2014', 'Winter', '639eba7', 'Fri Nov 21 00:00:00 CST 2014');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `registerentity`
 --
 
@@ -37,6 +62,27 @@ CREATE TABLE IF NOT EXISTS `registerentity` (
   `password` varchar(255) DEFAULT NULL,
   `state` varchar(255) DEFAULT NULL,
   `zip` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `registerentity`
+--
+
+INSERT INTO `registerentity` (`id`, `age`, `contactNumber`, `emailAddress`, `firstName`, `homeAddress`, `lastName`, `password`, `state`, `zip`) VALUES
+(1, '14', '123', 'zahidcse13@gmail.com', 'Md Zahid', 'wefrwfw', 'Islam', 'f6dbdb2', 'iowa', '123');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reservationentity`
+--
+
+CREATE TABLE IF NOT EXISTS `reservationentity` (
+`id` bigint(20) NOT NULL,
+  `endDate` datetime DEFAULT NULL,
+  `room` tinyblob,
+  `startDate` datetime DEFAULT NULL,
+  `typeRoom` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -74,9 +120,21 @@ INSERT INTO `roommanagemententity` (`id`, `description`, `price`, `roomNumber`, 
 --
 
 --
+-- Indexes for table `promotionentity`
+--
+ALTER TABLE `promotionentity`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `registerentity`
 --
 ALTER TABLE `registerentity`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `reservationentity`
+--
+ALTER TABLE `reservationentity`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -90,9 +148,19 @@ ALTER TABLE `roommanagemententity`
 --
 
 --
+-- AUTO_INCREMENT for table `promotionentity`
+--
+ALTER TABLE `promotionentity`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `registerentity`
 --
 ALTER TABLE `registerentity`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `reservationentity`
+--
+ALTER TABLE `reservationentity`
 MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `roommanagemententity`

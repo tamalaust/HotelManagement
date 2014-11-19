@@ -6,6 +6,8 @@
 package mum.cs545.app;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -13,6 +15,7 @@ import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Named;
+import mum.cs545.model.PromotionEntity;
 import mum.cs545.model.ReservationEntity;
 import mum.cs545.model.RoomManagementEntity;
 import org.hibernate.Hibernate;
@@ -36,7 +39,8 @@ public class ReservationBean implements Serializable {
     private ReservationEntity reservation = new ReservationEntity();
     private List<RoomManagementEntity> rooms;
     private List<RoomManagementEntity> selectedRooms;
-    private Long totalPrice;
+    private String promoCode;
+    private Long totalPrice= 0L;
     private static SessionFactory sessionFactory;
     private static Transaction tx;
 
@@ -57,6 +61,16 @@ public class ReservationBean implements Serializable {
         this.reservation = reservation;
     }
 
+    public String getPromoCode() {
+        return promoCode;
+    }
+
+    public void setPromoCode(String promoCode) {
+        this.promoCode = promoCode;
+    }
+
+    
+
     public List<RoomManagementEntity> getRooms() {
         return rooms;
     }
@@ -74,12 +88,29 @@ public class ReservationBean implements Serializable {
     }
 
     public Long getTotalPrice() {
-
-        for (RoomManagementEntity re : getSelectedRooms()) {
+       
+        for (RoomManagementEntity re :getSelectedRooms()) {
             totalPrice += re.getPrice();
         }
-
         return totalPrice;
+    }
+    public void validPromo()
+    {
+        List <PromotionEntity> promo;
+        Session session = sessionFactory.openSession();
+        tx = session.beginTransaction();
+       
+        promo = (List<PromotionEntity>) session.createQuery("from PromotionEntity P where P.promotionCode=:type")
+                .setString("type",getPromoCode())
+                .list();
+        for(PromotionEntity pr: promo){
+            if(pr.getPromotionCode().equals(getPromoCode()))
+                  totalPrice = totalPrice -totalPrice*(pr.getDiscount()/100);
+        }
+        
+        tx.commit();
+        session.close();
+        
     }
 
     public void setTotalPrice(Long totalPrice) {
