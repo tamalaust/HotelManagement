@@ -62,7 +62,8 @@
 
                                                 <p:row>
                                                     <p:column colspan="3" style="text-align: right" footerText="Totals"/>
-                                                    <h:outputText value="#{reservationBean.totalPrice}" id="totalPrice"/>
+                                                    <h:outputText value="#{reservationBean.totalPrice}" id="totalPrice"/><br/>
+                                                    <h:outputText value="#{reservationBean.update}" id="update"/>
                                                 </p:row>
                                             </p:columnGroup>
                                         </p>
@@ -75,7 +76,7 @@
                                     <label class="col-sm-2 control-label">Promo Code :</label>
                                     <div class="col-sm-4">
                                                 <span><p:inputText>
-                                                        <p:ajax event="change" update="totalPrice" listener="#{reservationBean.validPromo}"/> 
+                                                        <p:ajax event="change" update="update" listener="#{reservationBean.validPromo}"/> 
                                             </p:inputText></span>
 
                                     </div>
