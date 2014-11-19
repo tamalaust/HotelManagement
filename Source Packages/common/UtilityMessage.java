@@ -18,7 +18,7 @@ import javax.mail.internet.MimeMessage;
  *
  * @author Imran
  */
-public class Util {
+public class UtilityMessage {
     
 
     public static void SendEmail(String toEmail,String Name,String pwd)

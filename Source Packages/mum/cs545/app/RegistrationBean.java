@@ -5,8 +5,8 @@
  */
 package mum.cs545.app;
 
+import common.UtilityMessage;
 import java.io.Serializable;
-import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import mum.cs545.model.RegisterEntity;
@@ -47,15 +47,17 @@ public class RegistrationBean implements Serializable {
     public String save() {
 
         System.out.print("inside save");
+        register.setPassword(UtilityMessage.generatePassword());
         register = new RegisterEntity(getRegister().getFirstName(), getRegister().getLastName(), getRegister().getEmailAddress(),
                 getRegister().getAge(), getRegister().getContactNumber(), getRegister().getHomeAddress(), getRegister().getZip(),
-                getRegister().getState(),"123");
+                getRegister().getState(),getRegister().getPassword());
 
         Session session = sessionFactory.openSession();
         tx = session.beginTransaction();
         session.save(register);
         tx.commit();
         session.close();
+        UtilityMessage.SendEmail(getRegister().getEmailAddress(),getRegister().getFirstName(),getRegister().getPassword());
 
         return "RoomAdministration";
     }
