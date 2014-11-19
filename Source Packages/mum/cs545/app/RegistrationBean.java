@@ -8,6 +8,7 @@ package mum.cs545.app;
 import common.UtilityMessage;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import mum.cs545.model.RegisterEntity;
 import org.hibernate.Session;
@@ -62,4 +63,8 @@ public class RegistrationBean implements Serializable {
         return "RoomAdministration";
     }
 
+     public String logout() {
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        return "/index.xhtml?faces-redirect=true";
+    }
 }

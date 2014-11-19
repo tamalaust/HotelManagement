@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
 
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Hilton International</title>
 
@@ -16,8 +17,19 @@
             </ui:define>
 
             <ui:define name="content">
+                <br></br>
 
-                <p>Welcome To Hilton International</p>
+                <div class="panel panel-info">
+                    <div class="panel-heading"><h4>Welcome To Hilton International</h4></div>
+                    <div class="panel-body">
+                        <center>
+                            <p:galleria value="#{imagesView.images}" var="image" panelWidth="1020" panelHeight="350" showCaption="true">
+                                <p:graphicImage name="/galleryimages/#{image}" alt="Image Description for #{image}" title="#{image}"/>
+                            </p:galleria>
+                        </center>
+                    </div>
+                </div>
+
 
             </ui:define>    
             <!--        wrap ends here-->
