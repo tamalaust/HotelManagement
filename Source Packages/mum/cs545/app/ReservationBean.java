@@ -48,7 +48,7 @@ public class ReservationBean implements Serializable {
         this.rooms = rooms;
     }
 
-    public List<RoomManagementEntity> updateTable() {
+    public void updateTable() {
         rooms = new ArrayList();
         Session session = sessionFactory.openSession();
         tx = session.beginTransaction();
@@ -63,7 +63,7 @@ public class ReservationBean implements Serializable {
         tx.commit();
         session.close();
 
-        return rooms;
+       
 
     }
 

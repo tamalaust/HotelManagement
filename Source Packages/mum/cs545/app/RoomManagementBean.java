@@ -43,11 +43,7 @@ public class RoomManagementBean implements Serializable {
         return room;
     }
 
-    public void sendEmail()
-    {
-        Util.SendEmail();
-    
-    }
+   
     
     public void setRoom(RoomManagementEntity room) {
         this.room = room;
