@@ -40,6 +40,8 @@ public class ReservationBean implements Serializable {
     private static SessionFactory sessionFactory;
     private static Transaction tx;
 
+  
+
     static {
         Configuration config = new Configuration();
         config.configure("hibernate.cfg.xml");
@@ -117,8 +119,8 @@ public class ReservationBean implements Serializable {
     }
 
     public void saveReservation() {
-        reservation = new ReservationEntity(getReservation().getStartDate(),getReservation().getEndDate());
-        
+        reservation = new ReservationEntity(getReservation().getStartDate(), getReservation().getEndDate());
+
         Session session = sessionFactory.openSession();
         tx = session.beginTransaction();
         session.save(reservation);
@@ -127,7 +129,7 @@ public class ReservationBean implements Serializable {
             session.save(rs);
 
         }
-        
+
         tx.commit();
         session.close();
     }
