@@ -67,6 +67,7 @@ public class ReservationEntity implements Serializable {
         this.typeRoom = typeRoom;
     }
     
+    @Override
     public String toString()
     {
        return typeRoom;

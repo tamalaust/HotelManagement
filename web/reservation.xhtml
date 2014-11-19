@@ -41,43 +41,43 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Room Type :</label>
                                 <div class="col-sm-4">
-                                   
+
                                     <p:selectOneMenu value="#{reservationBean.reservation.typeRoom}">
-                                            <f:selectItem itemValue="Deluxe" itemLabel="Deluxe" />
-                                            <f:selectItem itemValue="Luxury" itemLabel="Luxury" />
-                                            <f:selectItem itemValue="Economy" itemLabel="Economy" />
-                                            <p:ajax event="onchange" update="dTable" listener="#{registrationBean.updateTable}"   
+                                        <f:selectItem itemValue="Deluxe" itemLabel="Deluxe" />
+                                        <f:selectItem itemValue="Luxury" itemLabel="Luxury" />
+                                        <f:selectItem itemValue="Economy" itemLabel="Economy" />
+                                        <p:ajax event="change" update="dTable" listener="#{reservationBean.updateTable}"/>   
                                     </p:selectOneMenu>
-                                    
+
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <p:dataTable id="dTable" styleClass="room_list_data_table" var="room" value="#{reservationBean.rooms}">
+                                <p:dataTable id="dTable" styleClass="room_list_data_table" var="room" value="#{reservationBean.rooms}" 
+                                             rowKey="#{room.roomNumber}" selection="#{reservationBean.selectedRooms}">
 
+                                 <p:column selectionMode="multiple" style="width:80px;text-align:center"/>
                                     <p:column headerText="Room No">
-                                        <h:outputText  />
+                                        <h:outputText value="#{room.roomNumber}"  />
                                     </p:column>
 
                                     <p:column headerText="Description">
-                                        <h:outputText  />
+                                        <h:outputText  value="#{room.description}" />
                                     </p:column>
 
-                                    <p:column headerText="Picture">
-                                        <h:outputText  />
+                                    <p:column headerText="Price">
+                                        <h:outputText  value="#{room.price}" />
                                     </p:column>
 
-                                    <p:column headerText="Select">
-                                        <h:outputText  />
-                                    </p:column>
+                               
                                 </p:dataTable>
                             </div>
 
                             <div class="form-group">
-                               
+
                                 <div class="col-sm-4">
 
-                                    <p:commandButton value="Procedd To CheckOut" class="btn btn-primary procedd_checkout_btn"/>
+                                    <p:commandButton value="Procedd To CheckOut" class="btn btn-primary procedd_checkout_btn" action="checkOut"/>
                                 </div>
                             </div>
 

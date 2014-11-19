@@ -2,108 +2,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Hilton International</title>
 
     </h:head>
     <h:body>
-        <h:outputStylesheet  name="css/bootstrap.css" />
-        <h:outputStylesheet  name="css/style.css" />
+        <ui:composition template="/templates/masterLayout.xhtml">
 
-        <div id="wrap">
+            <ui:define name="windowTitle">
 
-            <div class="row header">Welcome to Hilton International</div> 
-            <!--            header part finishes here-->
-            <div class="row content">
-                <div class="col-md-6 left_sidebar">
-                    <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Register</a></li>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Available Rooms</a></li>
-                        <li><a href="#">Promotions</a></li>
-                    </ul>
+            </ui:define>
 
-                </div>
-                <!--                left sidebar finishes here-->
-                <div class="col-md-6 main_content">
-                    <div class="check_out_content">
+            <ui:define name="content">
 
-                        <p><span style="font-weight: bold">Start Date : </span><span>Date</span></p>
-                        <p><span  style="font-weight: bold">End   Date : </span><span>Date</span></p>
-                        <p><span style="font-weight: bold">Room Type : </span><span>Room Number</span></p>
-                        <p>
-                            <p style="font-weight: bold">Your Rooms Reservations</p>
-                            <p><p:dataTable styleClass="room_list_data_table">
-
-                                    <p:column headerText="Room No">
-                                        <h:outputText  />
-                                    </p:column>
-
-                                    <p:column headerText="Description">
-                                        <h:outputText  />
-                                    </p:column>
-
-                                    <p:column headerText="Picture">
-                                        <h:outputText  />
-                                    </p:column>
-
-                                    <p:column headerText="Select">
-                                        <h:outputText  />
-                                    </p:column>
-                                </p:dataTable>
-                                <p:columnGroup type="footer">
-
-                                    <p:row>
-                                        <p:column colspan="3" style="text-align: right" footerText="Totals"/>
-                                        <p:column footerText="$100000"/>
-                                    </p:row>
-                                </p:columnGroup>
-                            </p>
-
-                        </p>
-                        <!--                        <p><span>Total Amount :</span><span>$100000</span></p>-->
-
-                        <p class=" col-md-12 align-right"><span>Promotional Code :</span>
-                            <span><p:inputText/></span>
-                        </p> 
+                <div class="panel panel-info">
+                    <div class="panel-heading">Login</div>
+                    <div class="panel-body">
 
 
-                        <table>
-                            <tr>
+                        <h:form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Email</label>
+                                <div class="col-sm-4">
+                                    <h:inputText class="form-control" value="#{loginBean.userEmail}"/>
+                                </div>
+                            </div>
 
-                                <td style="padding-left: 178px;font-weight: bold">Payment Method :</td>
+                           
 
-                                <td><p:selectOneRadio label="Payment Method :">
-                                        <f:selectItem itemLabel="Visa" itemValue="VS" />
-                                        <f:selectItem itemLabel="American Express" itemValue="AMEX" />
-                                    </p:selectOneRadio></td>
-                            </tr>
-                        </table>
-
-                        <p class=" col-md-12 align-right"><span>Credit Card Number :</span>
-                            <span><p:inputText/></span>
-                        </p> 
-                        <p class=" col-md-12 align-right"><span>Expiry Date :</span>
-                            <span><p:inputText/></span>
-                        </p> 
-                        <p:commandButton value="Confirm Reservation" class="btn btn-info btn-lg procedd_checkout_btn" style="margin-top:10px;width: 150px;font-size: 12px "/>
-
+                        </h:form>
                     </div>
-
                 </div>
 
-                <!--                main content finishes here-->
-            </div>
-            <div class="row footer">@Copyright MUM 2014</div>
+            </ui:define>    
+            <!--        wrap ends here-->
 
-            <!--            footer finishes here-->
 
-        </div>
-
-        <!--        wrap ends here-->
+        </ui:composition>
     </h:body>
 </html>
 
