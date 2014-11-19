@@ -26,6 +26,7 @@ public class ReservationEntity implements Serializable {
     private Date endDate;
     private RoomManagementEntity room[];
     private String typeRoom;
+    //private Long customerId;
     
     public Long getId() {
         return id;
@@ -34,6 +35,14 @@ public class ReservationEntity implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public ReservationEntity(){
+    }
+    public ReservationEntity(Date startDate, Date endDate) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+    
 
     public Date getStartDate() {
         return startDate;

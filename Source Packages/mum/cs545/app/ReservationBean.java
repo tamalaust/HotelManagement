@@ -7,6 +7,7 @@ package mum.cs545.app;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
@@ -35,7 +36,8 @@ public class ReservationBean implements Serializable {
     private ReservationEntity reservation = new ReservationEntity();
     private List<RoomManagementEntity> rooms;
     private List<RoomManagementEntity> selectedRooms;
-    private static SessionFactory sessionFactory ;
+    private Long totalPrice;
+    private static SessionFactory sessionFactory;
     private static Transaction tx;
 
     static {
@@ -69,15 +71,28 @@ public class ReservationBean implements Serializable {
         this.selectedRooms = selectedRooms;
     }
 
+    public Long getTotalPrice() {
+
+        for (RoomManagementEntity re : getSelectedRooms()) {
+            totalPrice += re.getPrice();
+        }
+
+        return totalPrice;
+    }
+
+    public void setTotalPrice(Long totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     public void updateTable(AjaxBehaviorEvent e) {
         rooms = new ArrayList();
         Session session = sessionFactory.openSession();
         tx = session.beginTransaction();
         String type = getReservation().getTypeRoom();
-        rooms = (List<RoomManagementEntity>)session.createQuery( "from RoomManagementEntity R where R.typeRoom=:type" )
-                                          .setString( "type",type)
-                                          .list();
-        
+        rooms = (List<RoomManagementEntity>) session.createQuery("from RoomManagementEntity R where R.typeRoom=:type")
+                .setString("type", type)
+                .list();
+
 //        String hql = "FROM RoomManagementEntity R WHERE R.typeRoom='Luxury'";
 //        Query query = session.createQuery(hql);
 //        for (Iterator it = query.iterate(); it.hasNext();) {
@@ -86,23 +101,35 @@ public class ReservationBean implements Serializable {
 //            rooms.add((RoomManagementEntity) it.next());
 //
 //        }
-
         tx.commit();
-        
+
         //RoomManagementEntity r1= new RoomManagementEntity("101", "Luxary","asdasd",(long)122.00, true);
-       // rooms.add(r1);
-        
-       session.close();
+        // rooms.add(r1);
+        session.close();
 
     }
-    
-    
-    public String checkOut()
-    {
-        
-        return "checkOut?faces-redirect=true&&includeViewParams=true";
-    
+
+    public String checkOut() {
+
+        String redirect = "?faces-redirect=true";
+        return "checkOut" + redirect;
+
     }
-  
+
+    public void saveReservation() {
+        reservation = new ReservationEntity(getReservation().getStartDate(),getReservation().getEndDate());
+        
+        Session session = sessionFactory.openSession();
+        tx = session.beginTransaction();
+        session.save(reservation);
+        for (RoomManagementEntity rs : rooms) {
+
+            session.save(rs);
+
+        }
+        
+        tx.commit();
+        session.close();
+    }
 
 }
