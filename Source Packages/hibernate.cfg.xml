@@ -12,5 +12,6 @@
         <property name="hibernate.show_sql">true</property>
         <mapping class="mum.cs545.model.RegisterEntity"/>
         <mapping class="mum.cs545.model.RoomManagementEntity"/>
+       
     </session-factory>
 </hibernate-configuration>
