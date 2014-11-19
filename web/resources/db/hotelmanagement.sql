@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2014 at 02:36 AM
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: Nov 19, 2014 at 11:25 AM
+-- Server version: 5.5.39
+-- PHP Version: 5.4.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,16 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `hotelmanagement`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `paymententity`
---
-
-CREATE TABLE IF NOT EXISTS `paymententity` (
-  `ID` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -47,34 +37,7 @@ CREATE TABLE IF NOT EXISTS `registerentity` (
   `password` varchar(255) DEFAULT NULL,
   `state` varchar(255) DEFAULT NULL,
   `zip` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `registerentity`
---
-
-INSERT INTO `registerentity` (`id`, `age`, `contactNumber`, `emailAddress`, `firstName`, `homeAddress`, `lastName`, `password`, `state`, `zip`) VALUES
-(1, '12', '1233', 'a@com', 'sdf', 'zxc', 'sdf', '123', 'zxc', 'zxc');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `reservationentity`
---
-
-CREATE TABLE IF NOT EXISTS `reservationentity` (
-  `ID` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `roommanagement`
---
-
-CREATE TABLE IF NOT EXISTS `roommanagement` (
-  `ID` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -83,41 +46,32 @@ CREATE TABLE IF NOT EXISTS `roommanagement` (
 --
 
 CREATE TABLE IF NOT EXISTS `roommanagemententity` (
-  `ID` bigint(20) NOT NULL,
-  `DESCRIPTION` varchar(255) DEFAULT NULL,
-  `PRICE` bigint(20) DEFAULT NULL,
-  `ROOMNUMBER` varchar(255) DEFAULT NULL,
-  `STATUS` tinyint(1) DEFAULT '0',
-  `TYPEROOM` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+`id` bigint(20) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `price` bigint(20) DEFAULT NULL,
+  `roomNumber` varchar(255) DEFAULT NULL,
+  `status` bit(1) NOT NULL,
+  `typeRoom` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
--- Table structure for table `sequence`
+-- Dumping data for table `roommanagemententity`
 --
 
-CREATE TABLE IF NOT EXISTS `sequence` (
-  `SEQ_NAME` varchar(50) NOT NULL,
-  `SEQ_COUNT` decimal(38,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `sequence`
---
-
-INSERT INTO `sequence` (`SEQ_NAME`, `SEQ_COUNT`) VALUES
-('SEQ_GEN', '0');
+INSERT INTO `roommanagemententity` (`id`, `description`, `price`, `roomNumber`, `status`, `typeRoom`) VALUES
+(2, 'Its very good', 1000, '101', b'1', 'Luxury'),
+(3, 'South faces', 1500, '102', b'1', 'Luxury'),
+(4, 'Great view', 1500, '103', b'1', 'Luxury'),
+(5, 'Nice', 800, '301', b'1', 'Deluxe'),
+(6, 'Suitable for family', 800, '302', b'1', 'Deluxe'),
+(7, 'Great for honymoon', 800, '303', b'1', 'Deluxe'),
+(8, 'Great value', 500, '401', b'1', 'Economy'),
+(9, 'Great value', 500, '402', b'1', 'Economy'),
+(10, 'Great value', 500, '403', b'1', 'Economy');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `paymententity`
---
-ALTER TABLE `paymententity`
- ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `registerentity`
@@ -126,28 +80,10 @@ ALTER TABLE `registerentity`
  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `reservationentity`
---
-ALTER TABLE `reservationentity`
- ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `roommanagement`
---
-ALTER TABLE `roommanagement`
- ADD PRIMARY KEY (`ID`);
-
---
 -- Indexes for table `roommanagemententity`
 --
 ALTER TABLE `roommanagemententity`
- ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `sequence`
---
-ALTER TABLE `sequence`
- ADD PRIMARY KEY (`SEQ_NAME`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -157,7 +93,12 @@ ALTER TABLE `sequence`
 -- AUTO_INCREMENT for table `registerentity`
 --
 ALTER TABLE `registerentity`
-MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `roommanagemententity`
+--
+ALTER TABLE `roommanagemententity`
+MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
