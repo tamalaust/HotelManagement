@@ -6,6 +6,7 @@
 package mum.cs545.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +22,10 @@ public class ReservationEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    private Date startDate;
+    private Date endDate;
+    private RoomManagementEntity typeRoom[];
+    
     public Long getId() {
         return id;
     }
@@ -30,29 +34,28 @@ public class ReservationEntity implements Serializable {
         this.id = id;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ReservationEntity)) {
-            return false;
-        }
-        ReservationEntity other = (ReservationEntity) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    @Override
-    public String toString() {
-        return "mum.cs545.model.ReservationEntity[ id=" + id + " ]";
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public RoomManagementEntity[] getTypeRoom() {
+        return typeRoom;
+    }
+
+    public void setTypeRoom(RoomManagementEntity[] typeRoom) {
+        this.typeRoom = typeRoom;
     }
     
 }
