@@ -31,11 +31,12 @@ public class RegisterEntity implements Serializable {
     private String homeAddress;
     private String zip;
     private String state;
+    private String password;
 
     public RegisterEntity() {
     }
 
-    public RegisterEntity(String firstName, String lastName, String emailAddress, String age, String contactNumber, String homeAddress, String zip, String state) {
+    public RegisterEntity(String firstName, String lastName, String emailAddress, String age, String contactNumber, String homeAddress, String zip, String state,String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
@@ -44,6 +45,7 @@ public class RegisterEntity implements Serializable {
         this.homeAddress = homeAddress;
         this.zip = zip;
         this.state = state;
+        this.password=password;
 
     }
 
@@ -117,6 +119,14 @@ public class RegisterEntity implements Serializable {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }

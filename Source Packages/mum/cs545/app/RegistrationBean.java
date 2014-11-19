@@ -49,7 +49,7 @@ public class RegistrationBean implements Serializable {
         System.out.print("inside save");
         register = new RegisterEntity(getRegister().getFirstName(), getRegister().getLastName(), getRegister().getEmailAddress(),
                 getRegister().getAge(), getRegister().getContactNumber(), getRegister().getHomeAddress(), getRegister().getZip(),
-                getRegister().getState());
+                getRegister().getState(),"123");
 
         Session session = sessionFactory.openSession();
         tx = session.beginTransaction();
