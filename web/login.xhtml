@@ -26,14 +26,14 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Email</label>
                                 <div class="col-sm-4">
-                                    <h:inputText class="form-control" value="#{registrationBean.register.firstName}"/>
+                                    <h:inputText class="form-control" value="#{loginBean.userEmail}"/>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Password</label>
                                 <div class="col-sm-4">
-                                    <h:inputText class="form-control" value="#{registrationBean.register.lastName}"/>
+                                    <h:inputText class="form-control" value="#{loginBean.password}"/>
                                 </div>
                             </div>
 
@@ -41,7 +41,7 @@
                                 <label class="col-sm-2 control-label"></label>
                                 <div class="col-sm-4">
 
-                                    <h:commandButton value="Submit" class="btn btn-primary" />
+                                    <h:commandButton value="Submit" class="btn btn-primary" action="#{loginBean.verifyPassword}" />
                                     <h:commandButton value="Cancel" class="btn btn-default"/>
                                 </div>
                             </div>

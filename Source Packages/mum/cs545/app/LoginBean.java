@@ -26,7 +26,9 @@ import org.hibernate.cfg.Configuration;
 @Named
 @SessionScoped
 public class LoginBean implements Serializable {
-    private RegisterEntity login = new RegisterEntity();
+//    private RegisterEntity login = new RegisterEntity();
+    private String userEmail;
+    private String password;
     private static SessionFactory sessionFactory;
     private static Transaction tx;
     static {
@@ -39,22 +41,46 @@ public class LoginBean implements Serializable {
     public String verifyPassword(){
        
         Session session = sessionFactory.openSession();
-        String SQL_QUERY = "from registerentity";
-        Query query = session.createQuery(SQL_QUERY);
         tx = session.beginTransaction();
+        String SQL_QUERY = "from RegisterEntity";
+        Query query = session.createQuery(SQL_QUERY);
+       
         tx.commit();
-        session.close();
+        //session.close();
         String emailAddress="";
         String password="";
         for (Iterator it = query.iterate(); it.hasNext();) {
             RegisterEntity row= (RegisterEntity) it.next();
             emailAddress=row.getEmailAddress();
+            password=row.getPassword();
             
+        
+        if(getUserEmail().equals(emailAddress)&& 
+                getPassword().equals(password)){
+            session.close();
+            return "welcomeCustomer";
         }
-        if(login.getEmailAddress().equals(emailAddress)){
         }
-        return null;    
+         session.close();
+        return "index";    
     }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
     
     
 }
