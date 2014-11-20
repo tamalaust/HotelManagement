@@ -13,5 +13,6 @@
         <mapping class="mum.cs545.model.PromotionEntity"/>
         <mapping class="mum.cs545.model.RoomManagementEntity"/>
         <mapping class="mum.cs545.model.ReservationEntity"/>
+        
     </session-factory>
 </hibernate-configuration>

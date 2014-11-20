@@ -46,7 +46,7 @@
                                         <p><p:dataTable styleClass="room_list_data_table" var="room" value="#{reservationBean.selectedRooms}" >
 
                                                 <p:column headerText="Room No">
-                                                   <h:outputText value="#{room.roomNumber}"  />
+                                                    <h:outputText value="#{room.roomNumber}"  />
                                                 </p:column>
 
                                                 <p:column headerText="Description">
@@ -62,8 +62,14 @@
 
                                                 <p:row>
                                                     <p:column colspan="3" style="text-align: right" footerText="Totals"/>
-                                                    <h:outputText value="#{reservationBean.totalPrice}" id="totalPrice"/><br/>
-                                                    <h:outputText value="#{reservationBean.update}" id="update"/>
+                                                    <p style="margin: 10px 0 0 216px;font-weight: bold">Total Price :$
+                                                          <h:outputText value="#{reservationBean.totalPrice}" id="totalPrice"/><br/>
+                                                    </p>
+                                                  
+                                                    <p style="margin: 10px 0 0 150px;font-weight: bold"> Total Price(Discount) :$
+                                                        <h:outputText value="#{reservationBean.update}" id="update"/>
+                                                    </p>
+
                                                 </p:row>
                                             </p:columnGroup>
                                         </p>
@@ -75,8 +81,8 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Promo Code :</label>
                                     <div class="col-sm-4">
-                                                <span><p:inputText>
-                                                        <p:ajax event="change" update="update" listener="#{reservationBean.validPromo}"/> 
+                                        <span><p:inputText value="#{reservationBean.promoCode}">
+                                                <p:ajax event="change" update="update" listener="#{reservationBean.validPromo}"/> 
                                             </p:inputText></span>
 
                                     </div>
@@ -110,7 +116,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"></label>
                                 <div class="col-sm-4">
-                                    <p:commandButton value="Confirm Reservation" class="btn btn-info btn-lg procedd_checkout_btn" style="margin:10px 0 0 50px;width: 150px;font-size: 12px; " action="saveReservation"/>
+                                    <p:commandButton value="Confirm Reservation" class="btn btn-info btn-lg procedd_checkout_btn" style="margin:10px 0 0 50px;width: 150px;font-size: 12px; " action="#{reservationBean.saveReservation}"/>
 
                                 </div>
                             </div>
