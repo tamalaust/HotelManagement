@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html" 
+     >
+    <head><title>IGNORED</title></head>  
+    <body>        
+        <ui:composition>    
+            <div class="row-offcanvas row-offcanvas-left">
+                <div id="sidebar" class="sidebar-offcanvas">
+                    <div class="col-md-12">
+                        <br></br>
+                        <h:form>
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active">
+                            <a href="#">Customer Navigation</a></li>
+                            <li><h:link value="Dashboard" outcome="welcomeCustomer"/> </li>
+                           
+                            <li><h:link value="Reservation" outcome="reservation"/></li>
+                           
+                            <li> 
+                            <h:commandLink class="icon-bar" value="Logout" action="#{registrationBean.logout}"/>    
+                               
+                           </li>
+                        </ul>
+                            </h:form> 
+                    </div>
+                </div>
+            </div>
+        </ui:composition>
+    </body>
+</html> 

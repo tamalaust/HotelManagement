@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Hilton International</title>
+
+    </h:head>
+    <h:body>
+        <ui:composition template="/templates/masterLayoutAdmin.xhtml">
+
+            <ui:define name="windowTitle">
+
+            </ui:define>
+
+            <ui:define name="content">
+
+
+                <br></br>
+                <div class="panel panel-info">
+                    <div class="panel-heading">Room Administration</div>
+                    <div class="panel-body">
+                        <h:form class="form-horizontal"> 
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Room Number</label>
+                                <div class="col-sm-4">
+                                    <h:inputText class="form-control" value="#{roomManagementBean.room.roomNumber}"/>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Type of Room</label>
+                                <div class="col-sm-4">
+                                    <h:selectOneListbox value="#{roomManagementBean.room.typeRoom}">
+                                        <f:selectItem itemValue="Deluxe" itemLabel="Deluxe" />
+                                        <f:selectItem itemValue="Luxury" itemLabel="Luxury" />
+                                        <f:selectItem itemValue="Economy" itemLabel="Economy" />
+                                    </h:selectOneListbox>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Description</label>
+                                <div class="col-sm-4">
+                                     <h:inputTextarea cols="30" rows="3" class="form-control" value="#{roomManagementBean.room.description}"/>
+                                </div>
+                            
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Price</label>
+                                <div class="col-sm-4">
+                             <h:inputText class="form-control" value="#{roomManagementBean.room.price}"/>
+                                </div>
+                            
+                            </div>
+                            
+                            <div class="form-group">
+                               <label class="col-sm-2 control-label"></label>
+                                <div class="col-sm-4">
+                              <h:commandButton value="Submit" class="btn btn-primary" action="#{roomManagementBean.save}" />&nbsp;
+                                <h:commandButton value="Cancel"  class="btn btn-default"/>
+                               
+
+                                
+                                </div>
+                            
+                            </div>
+                            
+                            <div class="form-group">
+                                 <div class="col-sm-4">
+                                <center>
+                                <h:outputText value="#{roomManagementBean.message}" class="alert-success" />
+                                 </div>
+                            </div>
+                        </h:form>   
+                    </div>
+                </div>    
+
+
+
+
+
+
+            </ui:define>    
+            <!--        wrap ends here-->
+
+
+        </ui:composition>
+    </h:body>
+</html>
+
